@@ -102,7 +102,7 @@ fn main() -> ! {
     let version = sx_read(&mut spi, &mut lora_nss, REG_VERSION);
     println!("SX127x version reg = 0x{:02x} (expect 0x12)", version);
 
-    // Basic LoRa config, 868 MHz, SF7/BW125, CR 4/5, CRC on.
+    // Basic LoRa config, 915.125 MHz, SF7/BW125, CR 4/5, CRC on.
     sx_write(
         &mut spi,
         &mut lora_nss,
@@ -115,8 +115,8 @@ fn main() -> ! {
         REG_OP_MODE,
         MODE_LONG_RANGE | MODE_STDBY,
     );
-    sx_write(&mut spi, &mut lora_nss, REG_FRF_MSB, 0xD9);
-    sx_write(&mut spi, &mut lora_nss, REG_FRF_MID, 0x00);
+    sx_write(&mut spi, &mut lora_nss, REG_FRF_MSB, 0xE4);
+    sx_write(&mut spi, &mut lora_nss, REG_FRF_MID, 0xC8);
     sx_write(&mut spi, &mut lora_nss, REG_FRF_LSB, 0x00);
     sx_write(&mut spi, &mut lora_nss, REG_PA_CONFIG, 0x8F);
     sx_write(&mut spi, &mut lora_nss, REG_MODEM_CONFIG_1, 0x72);

@@ -50,7 +50,7 @@ Das Beispiel in `src/main.rs` blinkt die LED auf `GPIO25`.
 
 `src/main.rs` enthaelt eine SX1276-Testschleife:
 
-- initialisiert LoRa auf `868.0 MHz` (SF7 / BW125 / CR4/5)
+- initialisiert LoRa auf `915.125 MHz` (SF7 / BW125 / CR4/5)
 - sendet periodisch `ping #NNN`
 - oeffnet danach ein kurzes RX-Fenster und loggt empfangene Frames
 
