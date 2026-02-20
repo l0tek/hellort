@@ -26,6 +26,14 @@ Die Runner-Config nutzt standardmaessig:
 - Target: `xtensa-esp32-none-elf`
 - Runner: `espflash flash --monitor`
 
+Alternativ mit Script:
+
+```bash
+./compile.sh build
+./compile.sh run
+./compile.sh check
+```
+
 ## Wireless Stick V1 Pins
 
 Bekannte Zuordnung fuer Heltec Wireless Stick V1:
@@ -37,6 +45,16 @@ Bekannte Zuordnung fuer Heltec Wireless Stick V1:
 - Vext Control: `GPIO21` (wird oft fuer externe Versorgung/OLED verwendet)
 
 Das Beispiel in `src/main.rs` blinkt die LED auf `GPIO25`.
+
+## LoRa Testschleife
+
+`src/main.rs` enthaelt eine SX1276-Testschleife:
+
+- initialisiert LoRa auf `868.0 MHz` (SF7 / BW125 / CR4/5)
+- sendet periodisch `ping #NNN`
+- oeffnet danach ein kurzes RX-Fenster und loggt empfangene Frames
+
+Damit RX sichtbar wird, brauchst du einen zweiten LoRa-Knoten mit gleichen Funkparametern.
 
 ## Flash-Hinweis
 
